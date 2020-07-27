@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "106511046094",
+    "firebase_url": "https://upbeat-arch-276915.firebaseio.com",
+    "project_id": "upbeat-arch-276915",
+    "storage_bucket": "upbeat-arch-276915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106511046094:android:5454aa54c2ead535d3879f",
+        "android_client_info": {
+          "package_name": "com.TechStrum.covid_19tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106511046094-b1jq33elnv7e49u0a14h4foemplnva3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHrLyk1x0r4SEE6mxyTuXIE2LHUyAKd68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106511046094-b1jq33elnv7e49u0a14h4foemplnva3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="About Us" android:id="@+id/aboutUs"></item>
+    <item android:title="Refresh" android:id="@+id/refresh"></item>
+    <item android:title="View State Wise" android:id="@+id/state_wise"></item>
+    <item android:title="Login" android:id="@+id/login_id"></item>
+</menu>
