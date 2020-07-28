@@ -4,7 +4,6 @@ Data used from a External api source
 Link of the API
 https://api.covid19india.org/
 
-![Screenshot](Sscreenshots/Screenshot_1595925731.png)
 ![alt text](https://github.com/vaibhav13062/Covid19Tracker/blob/master/Screenshots/Screenshot_1595925731.png?raw=true)
 ![alt text](https://github.com/vaibhav13062/Covid19Tracker/blob/master/Screenshots/Screenshot_1595925936.png?raw=true)
 ![alt text](https://github.com/vaibhav13062/Covid19Tracker/blob/master/Screenshots/Screenshot_1595925940.png?raw=true)
