@@ -11,14 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".ShowActivity" />
-        <activity android:name=".State_Activity" />
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ShowActivity"
+            android:parentActivityName=".State_Activity"/>
+        <activity android:name=".State_Activity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

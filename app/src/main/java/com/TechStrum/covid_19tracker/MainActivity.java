@@ -199,9 +199,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("statelist",state_List);
             startActivity(intent);
         }
-        else if(item.getItemId()==R.id.login_id){
-            startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
-        }
         return super.onOptionsItemSelected(item);
     }
 }
