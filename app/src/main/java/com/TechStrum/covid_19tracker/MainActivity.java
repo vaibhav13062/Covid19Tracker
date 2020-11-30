@@ -2,6 +2,7 @@ package com.TechStrum.covid_19tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,6 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
     TextView delta_recovered;
     TextView delta_deaths;
     TextView updateDate;
+    FloatingActionButton refresh_button;
     ArrayList<String> allStates;
+    AdView mainAd;
     public void stateWise(View view){
         Intent intent =new Intent(getApplicationContext(),State_Activity.class);
         intent.putStringArrayListExtra("allStates",allStates);
@@ -63,9 +73,34 @@ public class MainActivity extends AppCompatActivity {
         delta_confirmed=findViewById(R.id.delta_confimed);
         delta_deaths=findViewById(R.id.delta_deaths);
         delta_recovered=findViewById(R.id.delta_recovered);
+        refresh_button=findViewById(R.id.refresh_button);
+        mainAd=findViewById(R.id.adView2);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mainAd.loadAd(adRequest);
+
+
         new DownloadTask().execute();
 
+
+        refresh_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            overridePendingTransition(0, 0);
+            startActivity(getIntent());
+            overridePendingTransition(0, 0);
+            }
+        });
+
     }
+
     private class DownloadTask extends AsyncTask<Void,Void,Void> {
         @Override
         protected void onPreExecute() {
@@ -159,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
@@ -173,32 +209,33 @@ public class MainActivity extends AppCompatActivity {
             delta_deaths.setText(("+"+total_list.get("deltadeaths")));
         }
     }
-        //MENU
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.menu_items,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.aboutUs){
-           Intent about=new Intent(getApplicationContext(),AboutActivity.class);
-           startActivity(about);
-        }
-        else if(item.getItemId()==R.id.refresh){
-            finish();
-            overridePendingTransition(0, 0);
-            startActivity(getIntent());
-            overridePendingTransition(0, 0);
-        }
-        else if(item.getItemId()==R.id.state_wise){
-            Intent intent =new Intent(getApplicationContext(),State_Activity.class);
-            intent.putStringArrayListExtra("allStates",allStates);
-            intent.putExtra("statelist",state_List);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+        //MENU
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater=getMenuInflater();
+//        menuInflater.inflate(R.menu.menu_items,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if(item.getItemId()==R.id.aboutUs){
+//           Intent about=new Intent(getApplicationContext(),AboutActivity.class);
+//           startActivity(about);
+//        }
+//        else if(item.getItemId()==R.id.refresh){
+//            finish();
+//            overridePendingTransition(0, 0);
+//            startActivity(getIntent());
+//            overridePendingTransition(0, 0);
+//        }
+//        else if(item.getItemId()==R.id.state_wise){
+//            Intent intent =new Intent(getApplicationContext(),State_Activity.class);
+//            intent.putStringArrayListExtra("allStates",allStates);
+//            intent.putExtra("statelist",state_List);
+//            startActivity(intent);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }

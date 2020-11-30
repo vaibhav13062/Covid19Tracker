@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,10 +17,12 @@ import java.util.HashMap;
 public class State_Activity extends AppCompatActivity {
     ListView listView;
     ArrayList<String> all_states;
+    Button backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_state_);
+        backButton = findViewById(R.id.backButtonState);
         final ArrayList<HashMap<String,String>> new_list;
         all_states = new ArrayList<String>();
         Intent intent =getIntent();
@@ -39,5 +42,13 @@ public class State_Activity extends AppCompatActivity {
 
        });
 
+
+
+       backButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               onBackPressed();
+           }
+       });
     }
 }

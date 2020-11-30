@@ -7,243 +7,288 @@
     android:background="#E6E6E6"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/logo_view"
-        android:layout_width="313dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_1" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/total_view"
-        android:layout_width="239dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="TOTAL CASES"
-        android:textColor="#E12E31"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_view" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/total_case"
+            <ImageView
+                android:id="@+id/logo_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mainpage" />
+
+            <TextView
+                android:id="@+id/total_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="TOTAL CASES"
+                android:textColor="#E12E31"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/total_case"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/cabin_medium"
+                android:inputType="number"
+                android:textColor="#616161"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias=".5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_view" />
+
+            <TextView
+                android:id="@+id/confirmed_view"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="Confirmed:-"
+                android:textColor="#E12E31"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_case" />
+
+            <TextView
+                android:id="@+id/active_view1"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="Active:-"
+                android:textColor="#E12E31"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmed_view" />
+
+            <TextView
+                android:id="@+id/recovered_view"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="Recovered:-"
+                android:textColor="#E12E31"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/active_view1" />
+
+            <TextView
+                android:id="@+id/delta_deaths"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="+"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/deaths_case"
+                app:layout_constraintTop_toTopOf="@+id/deaths_case" />
+
+            <TextView
+                android:id="@+id/deaths_case"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:textColor="#616161"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/deaths_view"
+                app:layout_constraintStart_toEndOf="@+id/deaths_view"
+                app:layout_constraintTop_toTopOf="@+id/deaths_view" />
+
+            <TextView
+                android:id="@+id/active_case"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:textColor="#616161"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/active_view1"
+                app:layout_constraintStart_toEndOf="@+id/active_view1"
+                app:layout_constraintTop_toTopOf="@+id/active_view1" />
+
+            <TextView
+                android:id="@+id/confirmed_case"
+                android:layout_width="0dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:textColor="#616161"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/confirmed_view"
+                app:layout_constraintStart_toEndOf="@+id/confirmed_view"
+                app:layout_constraintTop_toTopOf="@+id/confirmed_view" />
+
+            <TextView
+                android:id="@+id/deaths_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="Last Updated On"
+                android:textColor="#E12E31"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.477"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deaths_view" />
+
+            <TextView
+                android:id="@+id/deaths_view"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="Deaths:-"
+                android:textColor="#E12E31"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recovered_view" />
+
+            <TextView
+                android:id="@+id/delta_recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="+"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/recovered_case"
+                app:layout_constraintTop_toTopOf="@+id/recovered_case" />
+
+            <TextView
+                android:id="@+id/recovered_case"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:textColor="#616161"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/recovered_view"
+                app:layout_constraintStart_toEndOf="@+id/recovered_view"
+                app:layout_constraintTop_toTopOf="@+id/recovered_view" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/button_style"
+                android:backgroundTint="@color/grey"
+                android:onClick="stateWise"
+                android:text="View State Wise"
+                android:textColor="@color/backgroud"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deaths_view2" />
+
+            <TextView
+                android:id="@+id/delta_confimed"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="+"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/confirmed_case"
+                app:layout_constraintTop_toTopOf="@+id/confirmed_case" />
+
+            <TextView
+                android:id="@+id/updateDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/cabin_medium"
+                android:inputType="datetime"
+                android:textColor="#616161"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deaths_view2" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/refresh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/grey"
+                android:clickable="true"
+                app:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_popup_sync" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView2"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-6966853236033666/7683209432"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/cabin_medium"
-        android:inputType="number"
-        android:textColor="#616161"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_view" />
-
-    <TextView
-        android:id="@+id/confirmed_view"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="92dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="Confirmed:-"
-        android:textColor="#E12E31"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_view" />
-
-    <TextView
-        android:id="@+id/active_view1"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="Active:-"
-        android:textColor="#E12E31"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmed_view" />
-
-    <TextView
-        android:id="@+id/recovered_view"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="Recovered:-"
-        android:textColor="#E12E31"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/active_view1" />
-
-    <TextView
-        android:id="@+id/deaths_view"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="Deaths:-"
-        android:textColor="#E12E31"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recovered_view" />
-
-    <TextView
-        android:id="@+id/deaths_view2"
-        android:layout_width="172dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="Last Updated On"
-        android:textColor="#E12E31"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deaths_view" />
-
-    <TextView
-        android:id="@+id/confirmed_case"
-        android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="92dp"
-        android:fontFamily="@font/cabin_medium"
-        android:textColor="#616161"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/confirmed_view"
-        app:layout_constraintTop_toBottomOf="@+id/total_view" />
-
-    <TextView
-        android:id="@+id/active_case"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="11dp"
-        android:fontFamily="@font/cabin_medium"
-        android:textColor="#616161"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/active_view1"
-        app:layout_constraintTop_toBottomOf="@+id/confirmed_view" />
-
-    <TextView
-        android:id="@+id/recovered_case"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="11dp"
-        android:fontFamily="@font/cabin_medium"
-        android:textColor="#616161"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/recovered_view"
-        app:layout_constraintTop_toBottomOf="@+id/active_case" />
-
-    <TextView
-        android:id="@+id/deaths_case"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/cabin_medium"
-        android:textColor="#616161"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/deaths_view"
-        app:layout_constraintTop_toBottomOf="@+id/recovered_view" />
-
-    <TextView
-        android:id="@+id/updateDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/cabin_medium"
-        android:inputType="datetime"
-        android:textColor="#616161"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deaths_view2" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="317dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="#616161"
-        android:onClick="stateWise"
-        android:text="View State Wise"
-        android:textColor="#E12E31"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deaths_view2" />
-
-    <TextView
-        android:id="@+id/delta_confimed"
-        android:layout_width="73dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="92dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="+"
-        android:textColor="@color/red"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/confirmed_case"
-        app:layout_constraintTop_toBottomOf="@+id/total_view" />
-
-    <TextView
-        android:id="@+id/delta_recovered"
-        android:layout_width="125dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="200dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="+"
-        android:textColor="@color/red"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/recovered_case"
-        app:layout_constraintTop_toBottomOf="@+id/total_view" />
-
-    <TextView
-        android:id="@+id/delta_deaths"
-        android:layout_width="188dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="252dp"
-        android:fontFamily="@font/cabin_medium"
-        android:text="+"
-        android:textColor="@color/red"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/deaths_case"
-        app:layout_constraintTop_toBottomOf="@+id/total_view" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
